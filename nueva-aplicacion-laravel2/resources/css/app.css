@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+.card-img-top {
+    height: 200px; 
+    object-fit: cover; 
+    width: 100%; 
+}
