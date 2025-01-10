@@ -14,5 +14,11 @@ class PostController extends Controller
            return view('blog', ['posts' => $posts]);
         }
     }
+    public function show(Post $post)
+{
+    // $post = Post::find($post);
+    return view('detail', ['post' => $post]);
+}
+
 
 }

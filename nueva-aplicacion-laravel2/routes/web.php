@@ -30,7 +30,10 @@ Route::get('/', function () {
 // )->name('blog');
 
 //Route::view('/blog', 'blog')->name('blog');
-Route::get('blog', [PostController::class, 'index'])->name('blog');
+Route::get('blog', [PostController::class, 'index'])->name('blog.index');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'about')->name('about');
-Route::get('animals', [AnimalController::class, 'index'])->name('animals');
+Route::get('animals', [AnimalController::class, 'index'])->name('animals.index');
+Route::get('/animals/{animal}', [AnimalController::class, 'show'])->name('animals.show');
+Route::get('/blog/{post}', [PostController::class, 'show'])->name('blog.show');
+

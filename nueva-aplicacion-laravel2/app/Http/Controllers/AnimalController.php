@@ -14,4 +14,8 @@ class AnimalController extends Controller
            return view('animals', ['animals' => $animals]);
         }
     }
+    public function show(Animal $animal)
+    {
+        return view('detailAnimal', ['animal' => $animal]);
+    }
 }

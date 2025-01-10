@@ -19,7 +19,9 @@
             <div class="card-body">
             <h5 class="card-title">{{$animal['name']}}</h5>
             <p class="card-text">{{$animal['description']}}</p>
-            <button type="button" class="btn btn-success">Leer más</button>
+            {{-- <button href="{{ route('animals.show', $animal->id)}}" type="button" class="btn btn-success">Leer más</button> --}}
+            <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('animals.show', $animal->id) }}'">Leer más</button>
+
             </div>
         </div>
     </div>
