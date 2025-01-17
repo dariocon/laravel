@@ -18,11 +18,11 @@
     }
     </style>
     @include('partials.navigation')
-    @session('status')
-    <div class="alert alert-success" role="alert">   
-      {{session('status')}}
- </div> 
- @endsession
+        @session('status')
+       <div class="alert alert-success" role="alert">   
+         {{session('status')}}
+    </div> 
+    @endsession
     {{ $slot }}
 
     @if (isset($sidebar))

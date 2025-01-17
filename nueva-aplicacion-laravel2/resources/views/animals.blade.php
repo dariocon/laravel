@@ -1,9 +1,9 @@
 @component('components.layout')
     <h1 class="animals-title text-center">Animals</h1>
+    <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('animals.create') }}'">Add animal</button>
 
     <div class="container py-5">
     <div class="row row-cols-1 row-cols-md-2 g-4">
-
         @foreach ($animals as $animal)
 {{-- <h4>
     {{$animal['name']}}
@@ -21,6 +21,7 @@
             <p class="card-text">{{$animal['description']}}</p>
             {{-- <button href="{{ route('animals.show', $animal->id)}}" type="button" class="btn btn-success">Leer más</button> --}}
             <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('animals.show', $animal->id) }}'">Leer más</button>
+            <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('animals.edit', $animal) }}'">Edit animal</button>
 
             </div>
         </div>
