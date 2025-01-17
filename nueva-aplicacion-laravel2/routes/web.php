@@ -31,9 +31,11 @@ Route::get('/', function () {
 
 //Route::view('/blog', 'blog')->name('blog');
 Route::get('blog', [PostController::class, 'index'])->name('blog.index');
+Route::get('blog/create', [PostController::class,'create'])->name('blog.create');
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/about', 'about')->name('about');
 Route::get('animals', [AnimalController::class, 'index'])->name('animals.index');
 Route::get('/animals/{animal}', [AnimalController::class, 'show'])->name('animals.show');
 Route::get('/blog/{post}', [PostController::class, 'show'])->name('blog.show');
+Route::post('blog', [@PostController::class, 'store'])->name('blog.store');
 
