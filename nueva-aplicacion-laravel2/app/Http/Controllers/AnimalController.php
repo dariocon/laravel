@@ -24,6 +24,12 @@ class AnimalController extends Controller
     }
     public function store(Request $request) {
         //contiene la peticion que se ha enviado
+
+        $request->validate([
+            'name' => ['required', 'min:5', 'string','unique:animals'],
+            'description' => ['required', 'min:10']
+            ]);
+
         $animal= new Animal;
         $animal->name = $request->input('name');
         $animal->description =  $request->input(key: 'description');

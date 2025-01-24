@@ -5,12 +5,18 @@
           <label for="text1" class="col-4 col-form-label">Name</label> 
           <div class="col-8">
             <input id="name" name="name" type="text" class="form-control">
+            @error('name')
+                <small class="text-danger">{{$message}}</small>
+            @enderror
           </div>
         </div>
         <div class="form-group row">
           <label for="text2" class="col-4 col-form-label">Description</label> 
           <div class="col-8">
             <input id="description" name="description" type="text" class="form-control">
+            @error('description')
+                <small class="text-danger">{{$message}}</small>
+            @enderror
           </div>
         </div> 
         <div class="form-group row">

@@ -7,6 +7,8 @@
         <a href="{{ route('blog.show', $post->id)}}">
             <h4>{{ $post['title'] }}</h4>
         </a>
+        <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('blog.edit', $post) }}'">Edit post</button>
+
         <p>{{ $post['body'] }}</p>
     @endforeach
 @endcomponent

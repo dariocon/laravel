@@ -24,6 +24,12 @@ public function create(){
 }
 public function store(Request $request) {
     //contiene la peticion que se ha enviado
+
+    $request->validate([
+        'title' => ['required', 'min:5'],
+        'body' => ['required', 'min:10']
+        ]);
+
     $post= new Post;
     $post->title = $request->input('title');
     $post->body =  $request->input(key: 'body');
@@ -32,6 +38,19 @@ public function store(Request $request) {
     
     return to_route('blog.index');
 
+}
+
+public function edit(Post $post){
+    return view('blog.edit', compact('post'));
+}
+public function update(Request $request, Post $post){
+
+    $post->update([
+        'title' => $request->title,
+        'body' => $request->body,
+    ]);
+
+    return to_route(route: 'blog.index');
 }
 
 
