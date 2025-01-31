@@ -22,6 +22,7 @@
             {{-- <button href="{{ route('animals.show', $animal->id)}}" type="button" class="btn btn-success">Leer más</button> --}}
             <button type="button" class="btn btn-success" onclick="window.location.href='{{ route('animals.show', $animal->id) }}'">Leer más</button>
             <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('animals.edit', $animal) }}'">Edit animal</button>
+            <button type="button" class="btn btn-primary" onclick="window.location.href='{{ route('animals.destroy', $animal) }}'">Delete animal</button>
 
             </div>
         </div>

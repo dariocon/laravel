@@ -1,17 +1,23 @@
 <x-layout meta-title='Create new animal' meta-description='Form to create a new animal'>
     <form method='POST' action="{{route('animals.update', $animal)}}">
       @csrf
-      @method('PUT')
+      @method('PATCH')
         <div class="form-group row">
           <label for="text1" class="col-4 col-form-label">Name</label> 
           <div class="col-8">
-            <input id="name" name="name" type="text" class="form-control" value="{{$animal->name}}">
+            <input id="name" name="name" type="text" class="form-control" value="{{ old('name', $animal->name) }}">
+            @error('name')
+              <small class="text-danger">{{$message}}</small>
+            @enderror
           </div>
         </div>
         <div class="form-group row">
           <label for="text2" class="col-4 col-form-label">Description</label> 
           <div class="col-8">
-            <input id="description" name="description" type="text" class="form-control" value="{{$animal->description}}">
+            <input id="description" name="description" type="text" class="form-control" value="{{old('description',$animal->description)}}">
+            @error('description')
+             <small class="text-danger">{{$message}}</small>
+            @enderror
           </div>
         </div> 
         <div class="form-group row">

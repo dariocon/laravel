@@ -20,7 +20,7 @@ class PostController extends Controller
     return view('detail', ['post' => $post]);
 }
 public function create(){
-    return view('blog.create');
+    return view('blog.create', ['post'=> new Post]);
 }
 public function store(Request $request) {
     //contiene la peticion que se ha enviado
@@ -45,10 +45,16 @@ public function edit(Post $post){
 }
 public function update(Request $request, Post $post){
 
+    $request->validate([
+        'title' => ['required', 'min:5'],
+        'body' => ['required', 'min:10']
+        ]);
+
     $post->update([
         'title' => $request->title,
         'body' => $request->body,
     ]);
+    session()->flash('status', 'Post edited!');
 
     return to_route(route: 'blog.index');
 }

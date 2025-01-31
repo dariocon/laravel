@@ -40,9 +40,12 @@ Route::view('/about', 'about')->name('about');
 Route::get('animals', [AnimalController::class, 'index'])->name('animals.index');
 Route::get('animals/create', [AnimalController::class,'create'])->name('animals.create');
 Route::get('animals/{animal}/edit', [AnimalController::class,'edit'])->name('animals.edit');
-Route::put('animals/{animal}', [AnimalController::class,'update'])->name('animals.update');
+Route::patch('animals/{animal}', [AnimalController::class,'update'])->name('animals.update');
+
 Route::get('/animals/{animal}', [AnimalController::class, 'show'])->name('animals.show');
+// Route::get('animals/{animal}/delete', [AnimalController::class, 'delete'])->name('animals.delete');
+Route::delete('animals/{animal}', [AnimalController::class, 'destroy'])->name(name: 'animals.destroy');
+
 Route::post('blog', [@PostController::class, 'store'])->name('blog.store');
 Route::post('animals', [@AnimalController::class, 'store'])->name('animals.store');
-
 
